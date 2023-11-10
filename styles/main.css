@@ -9,23 +9,6 @@
     padding: 0;
 }
 
-html,
-body {
-    height: 100%;
-}
-
-body {
-    min-height: 50vh;
-    line-height: 1.5;
-    text-align: center;
-    -webkit-font-smoothing: antialiased;
-    background-color: aquamarine;
-    border: 5px dashed red;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
 img,
 picture,
 video,
@@ -52,11 +35,57 @@ h6 {
     overflow-wrap: break-word;
 }
 
-@font-face {
-    font-family: 'Cube';
-    src: url(/resources/fonts/cube-font/Cube-rxaL.woff);
+:root {
+    --color-background: #fff;
+    --color-text: #333;
 }
 
-.Logo {
-    font-family: 'Cube', sans-serif;
+body.dark-mode {
+    --color-background: #333;
+    --color-text: #fff;
 }
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    min-height: 100vh;
+    line-height: 1.5;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    height: 0vh;
+    display: none;
+}
+
+.MainPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.Logo>img {
+    content: url("../resources/Logo/transparent/long_light.png");
+}
+
+.MainPage>p {
+    font-size: 50px;
+    font-family: "Noto Sans", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #333;
+        color: #fff;
+    }
+    .Logo>img {
+        content: url("../resources/Logo/transparent/long_dark.png");
+    }
+}
+
