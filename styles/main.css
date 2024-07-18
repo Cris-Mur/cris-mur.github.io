@@ -36,13 +36,12 @@ h6 {
 }
 
 :root {
-    --color-background: #fff;
-    --color-text: #333;
-}
-
-body.dark-mode {
-    --color-background: #333;
-    --color-text: #fff;
+    --color-light: #cccccc;
+    --color-dark: #0f0e14;
+    --color-footer: #8686867e;
+    --color-background: var(--color-light);
+    --color-text: var(--color-dark);
+    font-family: "hackbold_oblique", "Noto Sans", sans-serif;
 }
 
 body {
@@ -55,11 +54,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100vh;
 }
 
-header {
-    height: 0vh;
-    display: none;
+footer {
+    background-color: var(--color-footer);
+    margin-top: 2dvh;
 }
 
 .MainPage {
@@ -67,25 +67,61 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    /* height: 70vh; */
 }
 
 .Logo>img {
     content: url("../resources/Logo/transparent/long_light.png");
 }
 
-.MainPage>p {
+.MainPage>.Title_tag {
     font-size: 50px;
-    font-family: "Noto Sans", sans-serif;
+}
+
+.Charms {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.Charms>img {
+    width: 60px;
+    height: 60px;
 }
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #333;
-        color: #fff;
+        background-color: var(--color-dark);
+        color: var(--color-light);
     }
     .Logo>img {
         content: url("../resources/Logo/transparent/long_dark.png");
     }
 }
 
+@media only screen and (max-width: 600px) {
+    .MainPage>.Title_tag {
+        font-size: 25px;
+    }
+    .Charms>img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+header {
+    display: contents;
+}
+
+.Projects>div {
+    margin-top: 2dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Projects>div>a>img {
+    margin-top: 2dvh;
+    max-width: 600px;
+    max-height: 300px;
+}
